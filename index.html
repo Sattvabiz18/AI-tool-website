@@ -53,7 +53,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-heigh
 .stat .l{font-size:13px;color:var(--ink-m);margin-top:2px}
 
 /* QUIZ */
-.quiz-page{display:none;padding:40px 0 80px;min-height:70vh}
+.quiz-page{padding:40px 0 80px;min-height:70vh}
 .pbar{height:3px;background:var(--butter);border-radius:100px;margin-bottom:44px;overflow:hidden}
 .pfill{height:100%;background:var(--gold);border-radius:100px;transition:width .5s ease;width:0%}
 .ql{font-size:13px;color:var(--ink-m);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
@@ -68,7 +68,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-heigh
 .opt .ds{font-size:13px;color:var(--ink-m);margin-top:1px}
 
 /* EMAIL GATE */
-.gate-page{display:none;padding:48px 0 80px}
+.gate-page{padding:48px 0 80px}
 .gate{background:var(--white);border:1.5px solid var(--butter);border-radius:20px;padding:40px 32px;text-align:center;max-width:460px;margin:0 auto}
 .gate h2{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:8px}
 .gate>p{font-size:15px;color:var(--ink-l);margin-bottom:22px;line-height:1.6}
@@ -79,7 +79,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-heigh
 .skip:hover{color:var(--ink)}
 
 /* RESULTS */
-.res-page{display:none;padding:44px 0 40px}
+.res-page{padding:44px 0 40px}
 .tag{display:inline-block;background:var(--green-l);color:var(--green);padding:5px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
 .res-h{font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:400;line-height:1.2;margin-bottom:6px}
 .res-h .tn{color:var(--gold-d);font-style:italic}
@@ -148,7 +148,7 @@ footer a:hover{color:var(--ink)}
 </div>
 
 <!-- ============ QUIZ ============ -->
-<div id="page-quiz" class="quiz-page">
+<div id="page-quiz" class="quiz-page" style="display:none">
 <div class="w">
   <div class="pbar"><div class="pfill" id="progress"></div></div>
   <div id="qbox"></div>
@@ -156,7 +156,7 @@ footer a:hover{color:var(--ink)}
 </div>
 
 <!-- ============ EMAIL GATE ============ -->
-<div id="page-email" class="gate-page">
+<div id="page-email" class="gate-page" style="display:none">
 <div class="w">
   <div class="gate fadein">
     <h2>Your matches are ready.</h2>
@@ -171,7 +171,7 @@ footer a:hover{color:var(--ink)}
 </div>
 
 <!-- ============ RESULTS ============ -->
-<div id="page-result" class="res-page">
+<div id="page-result" class="res-page" style="display:none">
 <div class="w">
   <div id="resbox" class="fadein"></div>
 </div>
@@ -551,4 +551,15 @@ function showResults() {
 
       <div class="card alt">
         <h3>#3: ${third.name}</h3>
-    
+        <p>${third.one}</p>
+        <div class="pr">${third.price}</div>
+        <a href="${third.link}" target="_blank" rel="noopener" class="btn btn-out btn-w">Try ${third.name} →</a>
+      </div>
+
+      <button class="retake" onclick="startQuiz()">← Not quite right? Retake the quiz</button>
+    </div>`;
+  showPage('result');
+}
+</script>
+</body>
+</html>
