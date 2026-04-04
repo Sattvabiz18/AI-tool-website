@@ -3,404 +3,563 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Tool Finder — Find the Right AI Tool for What You Create</title>
-<meta name="description" content="A free quiz that matches you with the right AI tool based on what you create and what you can spend. No fluff, just the right tool.">
+<title>My AI Tool Quiz — Which AI or SaaS Tool Is Right for You?</title>
+<meta name="description" content="Take a free 30-second quiz at myaitoolquiz.com to find the best AI and SaaS tools for your business — writing, marketing, video, courses, scheduling, and more.">
+<meta name="keywords" content="best AI tools, SaaS tools quiz, AI writing tools, marketing tools, course creation tools, productivity tools, my AI tool quiz">
+<meta property="og:title" content="My AI Tool Quiz — Which AI Tool Is Right for You?">
+<meta property="og:description" content="Answer 5 quick questions and get matched to the AI and SaaS tools that actually fit your work.">
+<meta property="og:url" content="https://myaitoolquiz.com">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  --cream:#FFF8E7;
-  --butter:#FFE9A0;
-  --honey:#F5C842;
-  --warm:#3D2C1E;
-  --warm-light:#6B5744;
-  --warm-muted:#9C8B7A;
-  --white:#FFFDF7;
-  --border:#E8DCC8;
-  --accent:#C44D2A;
-  --accent-hover:#A83D1E;
-  --green:#2D7A4F;
-  --serif:'Instrument Serif', Georgia, serif;
-  --sans:'DM Sans', -apple-system, system-ui, sans-serif;
+:root {
+  --cream:#FDF6E3;--cream-d:#F5ECDA;--butter:#EDE0C8;--gold:#C9A84C;--gold-d:#A8873A;
+  --ink:#2C2416;--ink-l:#5C4F3A;--ink-m:#8A7D6B;--white:#FFF;
+  --green:#3A7D44;--green-l:#EAF4EC;--coral:#C9553D;
+  --serif:'Instrument Serif',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif;
+  --r:14px;
 }
-
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--cream);color:var(--warm);line-height:1.65;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
 
-/* — LAYOUT — */
-.wrap{max-width:620px;margin:0 auto;padding:0 24px}
+.w{max-width:660px;margin:0 auto;padding:0 24px}
 
-/* — NAV — */
-nav{padding:20px 0;border-bottom:1px solid var(--border)}
-nav .wrap{display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--warm);text-decoration:none;letter-spacing:-0.01em}
-.logo em{font-style:italic;color:var(--accent)}
-nav a.nav-link{font-size:14px;color:var(--warm-muted);text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s}
-nav a.nav-link:hover{color:var(--warm);border-bottom-color:var(--warm)}
+/* NAV */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--butter)}
+.nav .logo{font-family:var(--serif);font-size:20px;color:var(--ink);text-decoration:none;cursor:pointer}
+.nav .logo em{font-style:italic;color:var(--gold-d)}
+.nav a.link{font-size:14px;color:var(--ink-m);text-decoration:none}
+.nav a.link:hover{color:var(--ink)}
 
-/* — HERO — */
-.hero{padding:72px 0 56px;text-align:center}
-.hero h1{font-family:var(--serif);font-size:clamp(2rem,5.5vw,3.2rem);font-weight:400;line-height:1.18;margin-bottom:16px;letter-spacing:-0.02em;color:var(--warm)}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero .sub{font-size:17px;color:var(--warm-light);max-width:480px;margin:0 auto 36px;line-height:1.7}
-.btn{display:inline-block;background:var(--accent);color:#fff;padding:16px 36px;border-radius:6px;font-size:16px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-family:var(--sans);transition:all 0.2s;letter-spacing:0.01em}
-.btn:hover{background:var(--accent-hover);transform:translateY(-1px)}
-.btn-outline{background:transparent;color:var(--warm);border:1.5px solid var(--border);padding:14px 32px}
-.btn-outline:hover{border-color:var(--warm);background:transparent;transform:translateY(-1px)}
+/* BUTTONS */
+.btn{display:inline-block;background:var(--ink);color:var(--cream);padding:15px 34px;border-radius:100px;font-size:16px;font-weight:500;border:none;cursor:pointer;font-family:var(--sans);text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--ink-l)}
+.btn-gold{background:var(--gold);color:var(--white)}
+.btn-gold:hover{background:var(--gold-d)}
+.btn-out{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn-out:hover{background:var(--ink);color:var(--cream)}
+.btn-w{width:100%;text-align:center;display:block}
 
-.trust{margin-top:48px;padding-top:32px;border-top:1px solid var(--border);display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.trust-item{text-align:center}
-.trust-item .num{font-family:var(--serif);font-size:28px;color:var(--warm);display:block;line-height:1.2}
-.trust-item .label{font-size:12px;color:var(--warm-muted);text-transform:uppercase;letter-spacing:0.08em}
+/* HERO */
+.hero{padding:68px 0 48px;text-align:center}
+.hero h1{font-family:var(--serif);font-size:clamp(2rem,5.5vw,3rem);font-weight:400;line-height:1.15;margin-bottom:18px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--gold-d)}
+.hero>p{font-size:17px;color:var(--ink-l);max-width:470px;margin:0 auto 32px;line-height:1.65}
+.stats{display:flex;justify-content:center;gap:40px;margin-top:36px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat .n{font-family:var(--serif);font-size:28px;color:var(--gold-d)}
+.stat .l{font-size:13px;color:var(--ink-m);margin-top:2px}
 
-/* — DIVIDER — */
-.divider{width:40px;height:2px;background:var(--honey);margin:0 auto}
+/* QUIZ */
+.quiz-page{display:none;padding:40px 0 80px;min-height:70vh}
+.pbar{height:3px;background:var(--butter);border-radius:100px;margin-bottom:44px;overflow:hidden}
+.pfill{height:100%;background:var(--gold);border-radius:100px;transition:width .5s ease;width:0%}
+.ql{font-size:13px;color:var(--ink-m);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.qt{font-family:var(--serif);font-size:clamp(1.4rem,4vw,1.9rem);font-weight:400;margin-bottom:8px;line-height:1.25}
+.qsub{font-size:14px;color:var(--ink-m);margin-bottom:28px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;background:var(--white);border:1.5px solid var(--butter);border-radius:var(--r);padding:16px 20px;cursor:pointer;transition:all .2s;text-align:left;font-family:var(--sans);width:100%;color:var(--ink)}
+.opt:hover{border-color:var(--gold);background:#FFFDF7}
+.opt.picked{border-color:var(--gold);background:var(--green-l)}
+.opt .ic{width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--cream-d);border-radius:10px;font-size:18px;flex-shrink:0}
+.opt .tx{font-size:15px;font-weight:500}
+.opt .ds{font-size:13px;color:var(--ink-m);margin-top:1px}
 
-/* — SECTION — */
-.section{padding:56px 0}
-.section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--warm-muted);margin-bottom:12px;text-align:center}
-.section h2{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:400;text-align:center;margin-bottom:8px;line-height:1.25;letter-spacing:-0.01em}
-.section h2 em{font-style:italic}
-.section .section-sub{text-align:center;color:var(--warm-light);font-size:15px;max-width:420px;margin:0 auto 36px}
+/* EMAIL GATE */
+.gate-page{display:none;padding:48px 0 80px}
+.gate{background:var(--white);border:1.5px solid var(--butter);border-radius:20px;padding:40px 32px;text-align:center;max-width:460px;margin:0 auto}
+.gate h2{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:8px}
+.gate>p{font-size:15px;color:var(--ink-l);margin-bottom:22px;line-height:1.6}
+.gate input{width:100%;padding:13px 16px;border:1.5px solid var(--butter);border-radius:10px;font-size:15px;font-family:var(--sans);background:var(--cream);color:var(--ink);outline:none;margin-bottom:10px;transition:border-color .2s}
+.gate input:focus{border-color:var(--gold)}
+.gate input::placeholder{color:var(--ink-m)}
+.skip{display:block;margin:12px auto 0;font-size:13px;color:var(--ink-m);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:var(--sans)}
+.skip:hover{color:var(--ink)}
 
-/* — QUIZ — */
-#quiz-section{display:none}
-.progress-track{background:var(--border);height:3px;border-radius:3px;margin-bottom:40px;overflow:hidden}
-.progress-fill{height:100%;background:var(--honey);border-radius:3px;transition:width 0.5s ease;width:0%}
-.q-step{font-size:13px;color:var(--warm-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;text-align:center}
-.q-text{font-family:var(--serif);font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:400;text-align:center;margin-bottom:32px;line-height:1.3}
-.options{display:flex;flex-direction:column;gap:10px;max-width:480px;margin:0 auto}
-.opt{display:flex;align-items:center;gap:14px;background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:18px 20px;cursor:pointer;transition:all 0.2s;font-family:var(--sans);font-size:15px;color:var(--warm);width:100%;text-align:left}
-.opt:hover{border-color:var(--honey);background:#FFFDF0}
-.opt.picked{border-color:var(--honey);background:#FFF8DC;box-shadow:0 0 0 1px var(--honey)}
-.opt-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-.opt.picked .opt-dot{border-color:var(--honey);background:var(--honey)}
-.opt.picked .opt-dot::after{content:'';width:6px;height:6px;background:#fff;border-radius:50%}
+/* RESULTS */
+.res-page{display:none;padding:44px 0 40px}
+.tag{display:inline-block;background:var(--green-l);color:var(--green);padding:5px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+.res-h{font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:400;line-height:1.2;margin-bottom:6px}
+.res-h .tn{color:var(--gold-d);font-style:italic}
+.res-sub{font-size:16px;color:var(--ink-l);margin-bottom:28px;line-height:1.6}
+.card{background:var(--white);border:1.5px solid var(--butter);border-radius:16px;padding:24px;margin-bottom:14px}
+.card h3{font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:8px}
+.card p{font-size:14px;color:var(--ink-l);line-height:1.6;margin-bottom:14px}
+.card .pr{font-size:13px;font-weight:600;color:var(--green);margin-bottom:14px}
+.card.alt{background:var(--cream-d);border-color:var(--butter)}
+.feat{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.feat span{font-size:12px;background:var(--cream);border:1px solid var(--butter);padding:4px 10px;border-radius:100px;color:var(--ink-l)}
+.retake{display:block;text-align:center;margin-top:24px;font-size:14px;color:var(--ink-m);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:var(--sans)}
+.retake:hover{color:var(--ink)}
 
-/* — EMAIL GATE — */
-#email-section{display:none}
-.email-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:40px 32px;max-width:460px;margin:0 auto;text-align:center}
-.email-card h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:8px}
-.email-card p{color:var(--warm-light);font-size:15px;margin-bottom:24px;line-height:1.65}
-.email-card input[type="email"]{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:6px;font-size:15px;font-family:var(--sans);color:var(--warm);background:var(--cream);outline:none;margin-bottom:10px;transition:border-color 0.2s}
-.email-card input[type="email"]:focus{border-color:var(--honey)}
-.email-card input[type="email"]::placeholder{color:var(--warm-muted)}
-.email-card .btn{width:100%;display:block;text-align:center}
-.skip{display:block;margin-top:14px;font-size:13px;color:var(--warm-muted);cursor:pointer;background:none;border:none;font-family:var(--sans);text-decoration:underline}
-.skip:hover{color:var(--warm)}
+/* STATIC PAGES */
+.static{padding:48px 0 60px}
+.static h1{font-family:var(--serif);font-size:1.8rem;font-weight:400;margin-bottom:20px}
+.static h2{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin:24px 0 8px;color:var(--ink)}
+.static p,.static li{font-size:15px;color:var(--ink-l);line-height:1.7;margin-bottom:10px}
+.static ul{padding-left:20px}
+.static a{color:var(--gold-d);text-decoration:underline}
+.back{font-size:14px;color:var(--ink-m);text-decoration:underline;cursor:pointer;background:none;border:none;font-family:var(--sans);margin-top:20px;display:inline-block}
 
-/* — RESULTS — */
-#results-section{display:none}
-.res-tag{display:inline-block;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);border:1px solid var(--green);padding:4px 12px;border-radius:4px;margin-bottom:16px}
-.res-h{font-family:var(--serif);font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:400;line-height:1.2;margin-bottom:6px}
-.res-tool{color:var(--accent);font-style:italic}
-.res-one{font-size:17px;color:var(--warm-light);margin-bottom:32px;line-height:1.65}
-.rec-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:28px;margin-bottom:14px}
-.rec-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:400;margin-bottom:8px}
-.rec-card p{font-size:14px;color:var(--warm-light);line-height:1.65;margin-bottom:16px}
-.rec-card .price{font-size:13px;color:var(--green);font-weight:600;margin-bottom:16px;display:block}
-.rec-card .btn{width:100%;text-align:center;display:block}
-.rec-card.alt{background:transparent;border:1px dashed var(--border)}
-.rec-card.alt .btn{background:var(--warm);color:#fff}
-.rec-card.alt .btn:hover{background:var(--warm-light)}
-.retake{display:block;text-align:center;margin-top:28px;font-size:14px;color:var(--warm-muted);cursor:pointer;background:none;border:none;font-family:var(--sans);text-decoration:underline}
-.retake:hover{color:var(--warm)}
+/* FOOTER */
+footer{border-top:1px solid var(--butter);padding:28px 0;text-align:center;margin-top:32px}
+footer p{font-size:12px;color:var(--ink-m);line-height:1.7}
+footer a{color:var(--ink-m);text-decoration:underline;cursor:pointer}
+footer a:hover{color:var(--ink)}
 
-/* — FOOTER — */
-footer{padding:40px 0;border-top:1px solid var(--border);text-align:center}
-footer p{font-size:12px;color:var(--warm-muted);line-height:1.8}
-footer a{color:var(--warm-muted);text-decoration:underline}
-footer a:hover{color:var(--warm)}
+/* ANIM */
+.fadein{animation:fi .45s ease forwards}
+@keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-/* — RESPONSIVE — */
-@media(max-width:500px){
-  .wrap{padding:0 18px}
-  .hero{padding:48px 0 40px}
-  .section{padding:40px 0}
-  .trust{gap:24px}
-  .email-card{padding:28px 20px}
+@media(max-width:560px){
+  .hero{padding:48px 0 36px}
+  .stats{gap:24px}
+  .gate{padding:28px 20px}
+  .card{padding:20px}
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <div class="wrap">
-    <a href="#" class="logo" onclick="goHome();return false">AI Tool <em>Finder</em></a>
-    <a href="#" class="nav-link" onclick="startQuiz();return false">Take the Quiz</a>
-  </div>
-</nav>
+<div class="w">
+  <nav class="nav">
+    <a class="logo" onclick="showPage('home')">My AI Tool <em>Quiz</em></a>
+    <a class="link" href="#" onclick="startQuiz();return false">Take the Quiz</a>
+  </nav>
+</div>
 
-<!-- HERO -->
-<section class="hero" id="hero-section">
-  <div class="wrap">
-    <h1>Stop Googling.<br>Find the <em>right</em> AI tool<br>for what you create.</h1>
-    <p class="sub">3 questions. 30 seconds. We'll tell you exactly which AI tool fits your content, your skill level, and your budget.</p>
-    <button class="btn" onclick="startQuiz()">Find My Tool →</button>
-
-    <div class="trust">
-      <div class="trust-item">
-        <span class="num">7</span>
-        <span class="label">Tools Reviewed</span>
-      </div>
-      <div class="trust-item">
-        <span class="num">3</span>
-        <span class="label">Questions</span>
-      </div>
-      <div class="trust-item">
-        <span class="num">30s</span>
-        <span class="label">To Your Match</span>
-      </div>
+<!-- ============ HOME ============ -->
+<div id="page-home">
+<div class="w">
+  <section class="hero fadein">
+    <h1>Stop Googling.<br>Find the <em>right</em> AI tool<br>for what you <em>actually</em> do.</h1>
+    <p>5 questions. 30 seconds. We'll match you to the tools that fit your work — whether you write, sell, teach, market, or create.</p>
+    <button class="btn" onclick="startQuiz()">Find My Tools →</button>
+    <div class="stats">
+      <div class="stat"><div class="n">15</div><div class="l">Tools Reviewed</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">Questions</div></div>
+      <div class="stat"><div class="n">30s</div><div class="l">To Your Match</div></div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+</div>
 
-<!-- QUIZ -->
-<section id="quiz-section">
-  <div class="wrap">
-    <div class="progress-track"><div class="progress-fill" id="pbar"></div></div>
-    <div id="qbox"></div>
-  </div>
-</section>
+<!-- ============ QUIZ ============ -->
+<div id="page-quiz" class="quiz-page">
+<div class="w">
+  <div class="pbar"><div class="pfill" id="progress"></div></div>
+  <div id="qbox"></div>
+</div>
+</div>
 
-<!-- EMAIL -->
-<section id="email-section">
-  <div class="wrap">
-    <div class="email-card">
-      <h2>Your match is ready.</h2>
-      <p>Pop your email in and we'll send your result plus a free one-page cheat sheet — <em>10 AI tools ranked by use case.</em></p>
-      <input type="email" id="eml" placeholder="you@email.com">
-      <button class="btn" onclick="doEmail()">Show My Match →</button>
-      <button class="skip" onclick="showResult()">No thanks, just show me</button>
-    </div>
+<!-- ============ EMAIL GATE ============ -->
+<div id="page-email" class="gate-page">
+<div class="w">
+  <div class="gate fadein">
+    <h2>Your matches are ready.</h2>
+    <p>Drop your email and we'll send your results plus a free cheat sheet — <strong>15 tools compared side by side.</strong></p>
+    <form onsubmit="doEmail(event)">
+      <input type="email" id="em-in" placeholder="you@email.com" required>
+      <button type="submit" class="btn btn-gold btn-w">Show My Results →</button>
+    </form>
+    <button class="skip" onclick="showResults()">No thanks, just show me</button>
   </div>
-</section>
+</div>
+</div>
 
-<!-- RESULTS -->
-<section id="results-section">
-  <div class="wrap" id="resbox"></div>
-</section>
+<!-- ============ RESULTS ============ -->
+<div id="page-result" class="res-page">
+<div class="w">
+  <div id="resbox" class="fadein"></div>
+</div>
+</div>
+
+<!-- ============ PRIVACY ============ -->
+<div id="page-privacy" style="display:none">
+<div class="w">
+  <section class="static fadein">
+    <h1>Privacy Policy</h1>
+    <p><strong>Last updated:</strong> April 2026</p>
+
+    <h2>What We Collect</h2>
+    <p>If you choose to provide your email address via our quiz, we collect it solely to send your quiz results and occasional helpful content. We do not sell, rent, or share your email with third parties.</p>
+
+    <h2>Affiliate Links</h2>
+    <p>This site contains affiliate links. When you click a link and make a purchase, we may earn a commission at no extra cost to you. This helps us keep the site running and free to use. We only recommend tools we've researched and believe are genuinely useful.</p>
+
+    <h2>Cookies</h2>
+    <p>We use basic analytics cookies (such as Vercel Analytics) to understand how people use the site. These cookies do not identify you personally. No advertising cookies are used.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>Affiliate links may redirect through partner tracking platforms (such as Impact, PartnerStack, or FirstPromoter). These platforms use their own cookies to track referrals. Please review each tool's privacy policy for details.</p>
+
+    <h2>Your Rights</h2>
+    <p>You can request removal of your email from our list at any time by emailing us. You can also unsubscribe from any email we send using the link at the bottom of each message.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy? Reach us at <strong>hello@myaitoolquiz.com</strong></p>
+
+    <button class="back" onclick="showPage('home')">← Back to home</button>
+  </section>
+</div>
+</div>
+
+<!-- ============ DISCLOSURE ============ -->
+<div id="page-disclosure" style="display:none">
+<div class="w">
+  <section class="static fadein">
+    <h1>Affiliate Disclosure</h1>
+    <p>My AI Tool Quiz is an independently run website. We recommend software tools we've researched and believe are genuinely helpful for creators, entrepreneurs, and small businesses.</p>
+    <p>Some of the links on this site are affiliate links. This means that if you click through and sign up for a tool, we may receive a commission — at no additional cost to you. This commission helps us maintain this site and keep it free.</p>
+    <p>Our quiz recommendations are based on your answers to our questions. We are not paid to rank one tool above another. The quiz logic matches tools to your use case, skill level, team size, and budget — nothing else.</p>
+    <p>We encourage you to try free trials and evaluate any tool yourself before committing to a paid plan.</p>
+
+    <button class="back" onclick="showPage('home')">← Back to home</button>
+  </section>
+</div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div id="page-contact" style="display:none">
+<div class="w">
+  <section class="static fadein">
+    <h1>Get in Touch</h1>
+    <p>Got a question, suggestion, or found a broken link? We'd love to hear from you.</p>
+    <p>Email us at: <strong>hello@myaitoolquiz.com</strong></p>
+    <p>We typically reply within 24–48 hours.</p>
+
+    <button class="back" onclick="showPage('home')">← Back to home</button>
+  </section>
+</div>
+</div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <p>AI Tool Finder &copy; 2026 &middot; <a href="#" onclick="goHome();return false">Retake Quiz</a> &middot; <a href="#">Affiliate Disclosure</a></p>
-    <p>This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
-  </div>
+<div class="w">
+  <p>My AI Tool Quiz &copy; 2026 &middot; <a onclick="showPage('privacy')">Privacy</a> &middot; <a onclick="showPage('disclosure')">Affiliate Disclosure</a> &middot; <a onclick="showPage('contact')">Contact</a></p>
+  <p style="margin-top:4px">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+</div>
 </footer>
 
 <script>
-const Q=[
+// ============ TOOLS DATABASE — 15 TOOLS ============
+// Primary tools + backups. Every category has a fallback if a programme rejects you.
+const TOOLS = {
+  writesonic: {
+    name:"Writesonic", cat:"AI Writing",
+    one:"AI writing for blogs, ads, product pages — with a real free tier.",
+    why:"You need written content and you need it fast. Writesonic handles blog posts, ad copy, product descriptions, and landing pages. The free tier is genuinely usable, and it supports 30+ languages. It's the best starting point for anyone who writes for a living.",
+    price:"Free tier · Paid from $20/mo",
+    link:"https://writesonic.com/?ref=YOURID",
+    features:["AI blog writer","Ad copy generator","Paraphraser","30+ languages"]
+  },
+  copyai: {
+    name:"Copy.ai", cat:"AI Writing & Workflows",
+    one:"AI-powered writing and marketing workflows — from blog posts to entire campaigns.",
+    why:"You want AI that goes beyond just writing paragraphs. Copy.ai handles blog content, email sequences, ad copy, and product descriptions — but it also automates entire marketing workflows, so you can go from idea to published content with less manual work. The 45% affiliate commission doesn't hurt either.",
+    price:"Free tier · Paid from $49/mo",
+    link:"https://www.copy.ai/?via=YOURID",
+    features:["AI blog writer","Marketing workflows","Email sequences","Ad copy generator"]
+  },
+  canva: {
+    name:"Canva Pro", cat:"Design",
+    one:"Design anything — social posts, presentations, videos, brand kits — even if you're not a designer.",
+    why:"You need to create visuals regularly and you don't have a design degree. Canva Pro handles social graphics, presentations, short videos, brand kits, and AI image generation. It's the most versatile creative tool for non-designers.",
+    price:"Free tier · Pro from $13/mo",
+    link:"https://partner.canva.com/YOURID",
+    features:["Social templates","AI image generator","Brand Kit","Magic Resize"]
+  },
+  pictory: {
+    name:"Pictory", cat:"AI Video",
+    one:"Turn blog posts and scripts into short, ready-to-post videos using AI.",
+    why:"You have written content and want to turn it into video without opening a video editor. Pictory takes a script or blog post and auto-generates a polished video with footage, captions, and music — ready for Reels, Shorts, or TikTok. It's the fastest path from text to video.",
+    price:"From $23/mo",
+    link:"https://pictory.ai/?ref=YOURID",
+    features:["Blog-to-video","Auto captions","Stock footage","AI voiceover"]
+  },
+  descript: {
+    name:"Descript", cat:"Audio/Video Editing",
+    one:"Edit podcasts and videos by editing text. Delete a word, it cuts from the audio.",
+    why:"You create audio or video and want editing to feel effortless. Descript lets you edit recordings by editing the transcript — with auto-transcription, filler word removal, screen recording, and AI voice cloning built in. Beginners love it, pros swear by it.",
+    price:"Free tier · Paid from $24/mo",
+    link:"https://get.descript.com/YOURID",
+    features:["Transcript editing","Filler word removal","Screen recording","AI voice clone"]
+  },
+  synthesia: {
+    name:"Synthesia", cat:"AI Avatar Video",
+    one:"Professional AI avatar videos from just a script — no camera, no crew.",
+    why:"You need video content but don't want to film it. Type a script, pick an avatar, and Synthesia creates a polished, professional video in minutes. Used for training, marketing, social content, and sales in 120+ languages.",
+    price:"From $29/mo",
+    link:"https://www.synthesia.io/?via=YOURID",
+    features:["125+ AI avatars","120+ languages","Video templates","Custom avatars"]
+  },
+  murf: {
+    name:"Murf AI", cat:"AI Voiceover",
+    one:"Studio-quality AI voiceovers in minutes — 120+ voices, 20+ languages.",
+    why:"You need professional voiceovers without hiring voice actors or recording anything yourself. Murf generates realistic AI voices for podcasts, videos, courses, and audiobooks — with full control over pitch, speed, and emphasis so it actually sounds human.",
+    price:"Free tier · Paid from $23/mo",
+    link:"https://murf.ai/?ref=YOURID",
+    features:["120+ AI voices","Voice cloning","Pitch & speed control","Video sync"]
+  },
+  shopify: {
+    name:"Shopify", cat:"E-commerce",
+    one:"The easiest way to launch and run an online store — from one product to thousands.",
+    why:"You sell products (or want to) and need a store that just works. Shopify handles payments, shipping, inventory, and marketing out of the box. Over 4 million businesses use it, from side hustles to billion-dollar brands.",
+    price:"From $39/mo",
+    link:"https://shopify.pxf.io/YOURID",
+    features:["Online store builder","Payment processing","Shipping & inventory","App ecosystem"]
+  },
+  clickfunnels: {
+    name:"ClickFunnels", cat:"Sales Funnels",
+    one:"Build sales funnels, landing pages, and automated sequences — no dev needed.",
+    why:"You need to sell online and want a system that handles the entire funnel — landing pages, checkout, upsells, email follow-ups — without stitching together five different tools. ClickFunnels is the most proven funnel builder out there.",
+    price:"From $97/mo",
+    link:"https://www.clickfunnels.com/?aff=YOURID",
+    features:["Drag-and-drop funnels","Checkout pages","Email sequences","A/B testing"]
+  },
+  systemeio: {
+    name:"Systeme.io", cat:"All-in-One Platform",
+    one:"Funnels, email, courses, website, and affiliate management — all free to start.",
+    why:"You want one platform that does everything without paying for five separate tools. Systeme.io combines sales funnels, email marketing, course hosting, website building, and affiliate management in one dashboard. The free plan is genuinely powerful, and paid plans start at just $27. It's the best value all-in-one platform for anyone bootstrapping.",
+    price:"Free plan · Paid from $27/mo",
+    link:"https://systeme.io/?sa=YOURID",
+    features:["Sales funnels","Email marketing","Course builder","Affiliate management"]
+  },
+  activecampaign: {
+    name:"ActiveCampaign", cat:"Email Marketing",
+    one:"Email marketing and automation that actually grows your business.",
+    why:"You've got an audience and you want to nurture them properly. ActiveCampaign combines email marketing, automations, CRM, and segmentation in one platform. It's what you graduate to when Mailchimp stops cutting it.",
+    price:"From $29/mo",
+    link:"https://www.activecampaign.com/?_r=YOURID",
+    features:["Email automations","CRM built in","Advanced segmentation","Landing pages"]
+  },
+  getresponse: {
+    name:"GetResponse", cat:"Email & Marketing",
+    one:"Email marketing, landing pages, webinars, and AI writing — all in one.",
+    why:"You need email marketing that does more than send newsletters. GetResponse handles automations, landing pages, webinars, and even AI-powered email writing. It's a solid all-rounder for creators and marketers who want one tool for audience growth.",
+    price:"Free tier · Paid from $19/mo",
+    link:"https://www.getresponse.com/?a=YOURID",
+    features:["Email automations","AI email writer","Landing pages","Webinar hosting"]
+  },
+  notion: {
+    name:"Notion", cat:"Productivity",
+    one:"Your workspace for notes, docs, wikis, projects — all in one place.",
+    why:"You're juggling too many tools and nothing talks to each other. Notion replaces your notes app, project manager, wiki, and spreadsheets with one clean workspace. AI features built in for writing, summarising, and organising.",
+    price:"Free tier · Paid from $10/mo",
+    link:"https://affiliate.notion.so/YOURID",
+    features:["AI writing assistant","Databases & wikis","Team collaboration","Templates library"]
+  },
+  kajabi: {
+    name:"Kajabi", cat:"Course Creation",
+    one:"Build, market, and sell online courses, memberships, and coaching — one platform.",
+    why:"You want to monetise what you know. Kajabi handles course creation, website, email marketing, payments, and community in a single platform. No plugins, no integrations, no dev work. It's the premium all-in-one for knowledge businesses.",
+    price:"From $69/mo",
+    link:"https://app.kajabi.com/r/YOURID",
+    features:["Course builder","Membership sites","Email marketing","Payment processing"]
+  },
+  calendly: {
+    name:"Calendly", cat:"Scheduling",
+    one:"Scheduling that just works — clients book, you show up.",
+    why:"You're wasting time going back and forth about meeting times. Calendly lets people book directly into your calendar with your rules — buffer times, availability, time zones, payment collection — all handled automatically.",
+    price:"Free tier · Paid from $10/mo",
+    link:"https://calendly.com/?referral=YOURID",
+    features:["Automated scheduling","Calendar sync","Payment collection","Team scheduling"]
+  }
+};
+
+// ============ QUESTIONS ============
+const QUESTIONS = [
   {
-    id:'what',step:'1 of 3',
-    text:'What do you mostly create?',
+    id:"role", label:"Question 1 of 5",
+    q:"What best describes your main gig right now?",
+    sub:"Pick the closest fit — it helps us narrow your tools.",
     opts:[
-      {v:'written',l:'Written — blogs, newsletters, copy, emails'},
-      {v:'video',l:'Video — YouTube, Reels, TikTok, courses'},
-      {v:'audio',l:'Audio — podcasts, voiceovers, narration'},
-      {v:'visual',l:'Visual — graphics, social posts, presentations'}
+      {v:"creator",  ic:"✍️", t:"Content creator", d:"Writer, blogger, YouTuber, podcaster"},
+      {v:"seller",   ic:"🛒", t:"I sell products or services", d:"E-commerce, freelance, coaching, consulting"},
+      {v:"teacher",  ic:"🎓", t:"I teach or train people", d:"Online courses, memberships, workshops"},
+      {v:"marketer", ic:"📣", t:"I run marketing", d:"Email, ads, social, funnels — for myself or clients"}
     ]
   },
   {
-    id:'skill',step:'2 of 3',
-    text:'How techy are you?',
+    id:"need", label:"Question 2 of 5",
+    q:"What do you need help with most?",
+    sub:"The one thing that would save you the most time this month.",
     opts:[
-      {v:'low',l:'Keep it simple — I just want it to work'},
-      {v:'mid',l:'I can figure things out pretty quickly'},
-      {v:'high',l:'I\'m comfortable with pro-level tools'}
+      {v:"writing",   ic:"📝", t:"Writing content", d:"Blogs, emails, ads, product copy"},
+      {v:"video",     ic:"🎬", t:"Creating video", d:"Social clips, course videos, talking-head content"},
+      {v:"selling",   ic:"💳", t:"Selling online", d:"Funnels, checkout, landing pages, stores"},
+      {v:"organising",ic:"📋", t:"Staying organised", d:"Tasks, scheduling, notes, project management"}
     ]
   },
   {
-    id:'budget',step:'3 of 3',
-    text:'What can you spend per month?',
+    id:"team", label:"Question 3 of 5",
+    q:"How big is your team?",
+    sub:"Just you, or have you got people?",
     opts:[
-      {v:'free',l:'Free or under $20'},
-      {v:'mid',l:'$20 – $50'},
-      {v:'high',l:'$50+'}
+      {v:"solo", ic:"🙋", t:"Just me", d:"Solo creator, freelancer, or solopreneur"},
+      {v:"small",ic:"👥", t:"2–10 people", d:"Small team or agency"},
+      {v:"big",  ic:"🏢", t:"10+", d:"Growing company or larger org"}
+    ]
+  },
+  {
+    id:"exp", label:"Question 4 of 5",
+    q:"How comfortable are you with new software?",
+    sub:"No wrong answer.",
+    opts:[
+      {v:"easy",   ic:"🌱", t:"Keep it simple", d:"I don't want to think about setup"},
+      {v:"okay",   ic:"⚡", t:"I can figure things out", d:"Give me 20 minutes and I'm good"},
+      {v:"power",  ic:"🛠️", t:"I like powerful tools", d:"Advanced features don't scare me"}
+    ]
+  },
+  {
+    id:"budget", label:"Question 5 of 5",
+    q:"What's your monthly budget for tools?",
+    sub:"What you'd comfortably invest in the right software.",
+    opts:[
+      {v:"free",   ic:"🆓", t:"Free or under $20/mo", d:"Just getting started or budget-tight"},
+      {v:"mid",    ic:"💰", t:"$20–$70/mo", d:"Happy to pay for the right thing"},
+      {v:"invest", ic:"💎", t:"$70+/mo", d:"Willing to invest in my business"}
     ]
   }
 ];
 
-const S={
-  what:{
-    written:  {jasper:3,writesonic:3,canva:1,pictory:0,descript:0,synthesia:0,murf:0},
-    video:    {jasper:0,writesonic:0,canva:1,pictory:3,descript:2,synthesia:3,murf:0},
-    audio:    {jasper:0,writesonic:0,canva:0,pictory:0,descript:3,synthesia:0,murf:3},
-    visual:   {jasper:0,writesonic:0,canva:4,pictory:0,descript:0,synthesia:0,murf:0}
-  },
-  skill:{
-    low:  {jasper:0,writesonic:2,canva:2,pictory:2,descript:0,synthesia:1,murf:2},
-    mid:  {jasper:2,writesonic:1,canva:1,pictory:1,descript:2,synthesia:2,murf:1},
-    high: {jasper:3,writesonic:0,canva:0,pictory:0,descript:3,synthesia:2,murf:0}
-  },
-  budget:{
-    free: {jasper:0,writesonic:2,canva:3,pictory:0,descript:1,synthesia:0,murf:0},
-    mid:  {jasper:2,writesonic:2,canva:2,pictory:2,descript:2,synthesia:1,murf:2},
-    high: {jasper:3,writesonic:1,canva:1,pictory:1,descript:2,synthesia:3,murf:1}
-  }
+// ============ SCORING MATRIX — 15 TOOLS ============
+// writesonic, copyai, canva, pictory, descript, synthesia, murf, shopify, clickfunnels, systemeio, activecampaign, getresponse, notion, kajabi, calendly
+const SC = {
+  // Q1: Role
+  creator:   {writesonic:3,copyai:2,canva:3,pictory:2,descript:2,synthesia:1,murf:1,shopify:0,clickfunnels:0,systemeio:1,activecampaign:1,getresponse:1,notion:1,kajabi:0,calendly:0},
+  seller:    {writesonic:1,copyai:1,canva:1,pictory:0,descript:0,synthesia:0,murf:0,shopify:4,clickfunnels:3,systemeio:3,activecampaign:2,getresponse:1,notion:1,kajabi:1,calendly:2},
+  teacher:   {writesonic:1,copyai:0,canva:2,pictory:1,descript:1,synthesia:2,murf:1,shopify:0,clickfunnels:1,systemeio:3,activecampaign:2,getresponse:2,notion:1,kajabi:4,calendly:2},
+  marketer:  {writesonic:2,copyai:3,canva:2,pictory:1,descript:0,synthesia:1,murf:0,shopify:0,clickfunnels:3,systemeio:2,activecampaign:4,getresponse:3,notion:1,kajabi:0,calendly:1},
+  // Q2: Need
+  writing:   {writesonic:4,copyai:4,canva:0,pictory:0,descript:0,synthesia:0,murf:0,shopify:0,clickfunnels:0,systemeio:0,activecampaign:1,getresponse:2,notion:2,kajabi:0,calendly:0},
+  video:     {writesonic:0,copyai:0,canva:1,pictory:4,descript:3,synthesia:4,murf:2,shopify:0,clickfunnels:0,systemeio:0,activecampaign:0,getresponse:0,notion:0,kajabi:0,calendly:0},
+  selling:   {writesonic:0,copyai:1,canva:0,pictory:0,descript:0,synthesia:0,murf:0,shopify:4,clickfunnels:4,systemeio:4,activecampaign:2,getresponse:1,notion:0,kajabi:2,calendly:1},
+  organising:{writesonic:0,copyai:0,canva:0,pictory:0,descript:0,synthesia:0,murf:0,shopify:0,clickfunnels:0,systemeio:1,activecampaign:1,getresponse:0,notion:4,kajabi:0,calendly:4},
+  // Q3: Team size
+  solo:      {writesonic:2,copyai:1,canva:2,pictory:1,descript:1,synthesia:0,murf:1,shopify:1,clickfunnels:1,systemeio:3,activecampaign:0,getresponse:1,notion:2,kajabi:1,calendly:2},
+  small:     {writesonic:1,copyai:2,canva:1,pictory:1,descript:1,synthesia:2,murf:1,shopify:2,clickfunnels:2,systemeio:1,activecampaign:2,getresponse:2,notion:2,kajabi:2,calendly:1},
+  big:       {writesonic:0,copyai:2,canva:0,pictory:0,descript:1,synthesia:3,murf:0,shopify:2,clickfunnels:2,systemeio:0,activecampaign:3,getresponse:2,notion:2,kajabi:2,calendly:1},
+  // Q4: Experience
+  easy:      {writesonic:2,copyai:1,canva:3,pictory:1,descript:0,synthesia:1,murf:1,shopify:2,clickfunnels:0,systemeio:2,activecampaign:0,getresponse:1,notion:0,kajabi:1,calendly:3},
+  okay:      {writesonic:1,copyai:1,canva:1,pictory:1,descript:2,synthesia:1,murf:1,shopify:1,clickfunnels:1,systemeio:1,activecampaign:1,getresponse:1,notion:2,kajabi:1,calendly:1},
+  power:     {writesonic:0,copyai:2,canva:0,pictory:1,descript:2,synthesia:1,murf:0,shopify:1,clickfunnels:3,systemeio:1,activecampaign:3,getresponse:2,notion:2,kajabi:2,calendly:0},
+  // Q5: Budget
+  free:      {writesonic:3,copyai:2,canva:3,pictory:0,descript:2,synthesia:0,murf:1,shopify:0,clickfunnels:0,systemeio:3,activecampaign:0,getresponse:2,notion:3,kajabi:0,calendly:3},
+  mid:       {writesonic:2,copyai:2,canva:2,pictory:2,descript:2,synthesia:2,murf:2,shopify:2,clickfunnels:0,systemeio:2,activecampaign:2,getresponse:2,notion:1,kajabi:1,calendly:1},
+  invest:    {writesonic:0,copyai:2,canva:0,pictory:1,descript:1,synthesia:2,murf:0,shopify:2,clickfunnels:3,systemeio:1,activecampaign:2,getresponse:1,notion:0,kajabi:3,calendly:0}
 };
 
-const T={
-  jasper:{
-    name:'Jasper',
-    one:'AI writing for marketing teams and serious creators. Blog posts, ad copy, campaigns — fast and on-brand.',
-    why:'You need professional-grade writing output and you have the budget for it. Jasper is the go-to for marketers who write a lot and need it to sound like them, not like a robot.',
-    price:'From $49/mo',
-    link:'#JASPER_AFFILIATE_LINK',
-    cta:'Try Jasper Free',
-    alt:'writesonic'
-  },
-  writesonic:{
-    name:'Writesonic',
-    one:'AI writing with a generous free tier. Blogs, ads, product descriptions — fast and simple.',
-    why:'You want to write faster without a big learning curve or a big bill. Writesonic has a free tier that actually works, and paid plans start at $20. It\'s the best bang-for-buck AI writer right now.',
-    price:'Free / from $20/mo',
-    link:'#WRITESONIC_AFFILIATE_LINK',
-    cta:'Try Writesonic Free',
-    alt:'jasper'
-  },
-  canva:{
-    name:'Canva Pro',
-    one:'Design, video, presentations, social content — all in one place. No design skills needed.',
-    why:'Your work is visual and you need one tool that does everything — social posts, presentations, short videos, brand kits. Canva Pro is the Swiss Army knife and the AI features (background remover, Magic Resize, text-to-image) save hours.',
-    price:'Free / Pro from $13/mo',
-    link:'#CANVA_AFFILIATE_LINK',
-    cta:'Try Canva Pro Free',
-    alt:'writesonic'
-  },
-  pictory:{
-    name:'Pictory',
-    one:'Paste a script or blog post, get a polished video back. Captions, stock footage, music — done.',
-    why:'You\'re creating video content and the bottleneck is production time. Pictory turns text into video automatically — paste a blog post or script and it generates a video with matched footage, captions, and music. Made for repurposing.',
-    price:'From $23/mo',
-    link:'#PICTORY_AFFILIATE_LINK',
-    cta:'Try Pictory Free',
-    alt:'descript'
-  },
-  descript:{
-    name:'Descript',
-    one:'Edit audio and video by editing text. Cut a word from the transcript, it cuts from the recording.',
-    why:'You work with audio or video and you want editing to feel as simple as editing a Google Doc. Descript does exactly that — plus automatic filler word removal, captions, screen recording, and collaboration. It\'s magic.',
-    price:'Free / from $24/mo',
-    link:'#DESCRIPT_AFFILIATE_LINK',
-    cta:'Try Descript Free',
-    alt:'pictory'
-  },
-  synthesia:{
-    name:'Synthesia',
-    one:'Type a script, pick an AI avatar, get a professional video. No camera. No actors. No studio.',
-    why:'You want polished, professional video without the production overhead. Synthesia generates videos with realistic AI presenters in 120+ languages. Enterprise teams and solo creators both use it for training, marketing, and explainer content.',
-    price:'From $22/mo',
-    link:'#SYNTHESIA_AFFILIATE_LINK',
-    cta:'Try Synthesia Free',
-    alt:'pictory'
-  },
-  murf:{
-    name:'Murf AI',
-    one:'Studio-quality AI voiceovers. 120+ voices, 20+ languages. Sounds like a real person.',
-    why:'You need voiceovers for podcasts, videos, courses, or audiobooks — but you don\'t want to hire voice talent or set up a studio. Murf generates realistic voices with full tone, pitch, and speed controls.',
-    price:'Free / from $23/mo',
-    link:'#MURF_AFFILIATE_LINK',
-    cta:'Try Murf AI Free',
-    alt:'descript'
-  }
-};
+// ============ STATE ============
+let qi = 0, answers = [];
 
-let ci=0, ans={};
-
-function hide(id){document.getElementById(id).style.display='none'}
-function show(id){document.getElementById(id).style.display='block'}
-
-function goHome(){
-  ci=0;ans={};
-  hide('quiz-section');hide('email-section');hide('results-section');
-  show('hero-section');
-  window.scrollTo({top:0,behavior:'smooth'});
+function showPage(p) {
+  ['home','quiz','email','result','privacy','disclosure','contact'].forEach(id => {
+    const el = document.getElementById('page-' + id);
+    if (el) el.style.display = id === p ? 'block' : 'none';
+  });
+  // Hide/show quiz-specific class
+  document.querySelector('.quiz-page').style.display = p === 'quiz' ? 'block' : 'none';
+  document.querySelector('.gate-page').style.display = p === 'email' ? 'block' : 'none';
+  document.querySelector('.res-page').style.display = p === 'result' ? 'block' : 'none';
+  window.scrollTo(0, 0);
 }
 
-function startQuiz(){
-  hide('hero-section');hide('email-section');hide('results-section');
-  show('quiz-section');
-  ci=0;ans={};
-  renderQ();
-  window.scrollTo({top:0,behavior:'smooth'});
+function startQuiz() {
+  qi = 0; answers = [];
+  showPage('quiz');
+  render();
 }
 
-function renderQ(){
-  const q=Q[ci];
-  document.getElementById('pbar').style.width=((ci)/Q.length*100)+'%';
-  document.getElementById('qbox').innerHTML=`
-    <p class="q-step">Question ${q.step}</p>
-    <h2 class="q-text">${q.text}</h2>
-    <div class="options">
-      ${q.opts.map(o=>`
-        <button class="opt" onclick="pick('${q.id}','${o.v}',this)">
-          <span class="opt-dot"></span>
-          <span>${o.l}</span>
-        </button>
-      `).join('')}
-    </div>
-  `;
+function render() {
+  const q = QUESTIONS[qi];
+  document.getElementById('progress').style.width = ((qi + 1) / QUESTIONS.length * 100) + '%';
+  document.getElementById('qbox').innerHTML = `
+    <div class="fadein">
+      <div class="ql">${q.label}</div>
+      <div class="qt">${q.q}</div>
+      <div class="qsub">${q.sub}</div>
+      <div class="opts">
+        ${q.opts.map(o => `
+          <button class="opt" onclick="pick('${o.v}',this)">
+            <span class="ic">${o.ic}</span>
+            <div><div class="tx">${o.t}</div><div class="ds">${o.d}</div></div>
+          </button>`).join('')}
+      </div>
+    </div>`;
 }
 
-function pick(qid,val,el){
-  document.querySelectorAll('.opt').forEach(b=>b.classList.remove('picked'));
+function pick(v, el) {
+  document.querySelectorAll('.opt').forEach(b => b.classList.remove('picked'));
   el.classList.add('picked');
-  ans[qid]=val;
-  setTimeout(()=>{
-    ci++;
-    if(ci<Q.length){renderQ();}
-    else{
-      document.getElementById('pbar').style.width='100%';
-      setTimeout(()=>{hide('quiz-section');show('email-section');window.scrollTo({top:0,behavior:'smooth'});},300);
-    }
-  },300);
+  answers.push(v);
+  setTimeout(() => {
+    qi++;
+    if (qi < QUESTIONS.length) { render(); }
+    else { showPage('email'); }
+  }, 280);
 }
 
-function calc(){
-  const sc={jasper:0,writesonic:0,canva:0,pictory:0,descript:0,synthesia:0,murf:0};
-  for(const[qid,a]of Object.entries(ans)){
-    const m=S[qid]?.[a];
-    if(m)for(const[t,p]of Object.entries(m))sc[t]+=p;
-  }
-  let w='writesonic',mx=0;
-  for(const[t,s]of Object.entries(sc))if(s>mx){mx=s;w=t;}
-  return w;
+function doEmail(e) {
+  e.preventDefault();
+  const email = document.getElementById('em-in').value;
+  if (email) console.log('Email captured:', email);
+  // TODO: POST to MailerLite/ConvertKit/etc
+  showResults();
 }
 
-function doEmail(){
-  const e=document.getElementById('eml').value;
-  if(e&&e.includes('@')){console.log('Captured:',e);}
-  showResult();
-}
+function showResults() {
+  // Calculate scores
+  const scores = {};
+  Object.keys(TOOLS).forEach(k => scores[k] = 0);
+  answers.forEach(a => {
+    const s = SC[a];
+    if (s) Object.keys(s).forEach(k => scores[k] += s[k]);
+  });
 
-function showResult(){
-  const wid=calc(), t=T[wid], r=T[t.alt];
-  hide('email-section');show('results-section');
-  window.scrollTo({top:0,behavior:'smooth'});
-  document.getElementById('resbox').innerHTML=`
-    <span class="res-tag">Your Match</span>
-    <h1 class="res-h">We'd go with <span class="res-tool">${t.name}.</span></h1>
-    <p class="res-one">${t.one}</p>
+  // Sort and get top 3
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const top3 = sorted.slice(0, 3).map(s => s[0]);
 
-    <div class="rec-card">
-      <h3>Why ${t.name}?</h3>
-      <p>${t.why}</p>
-      <span class="price">${t.price}</span>
-      <a href="${t.link}" target="_blank" rel="noopener" class="btn">${t.cta} →</a>
-    </div>
+  const primary = TOOLS[top3[0]];
+  const second = TOOLS[top3[1]];
+  const third = TOOLS[top3[2]];
 
-    <div class="rec-card alt">
-      <h3>Also worth a look: ${r.name}</h3>
-      <p>${r.one}</p>
-      <a href="${r.link}" target="_blank" rel="noopener" class="btn">Try ${r.name} →</a>
-    </div>
+  document.getElementById('resbox').innerHTML = `
+    <div class="fadein">
+      <div class="tag">Your top 3 matches</div>
+      <h1 class="res-h">We'd start with <span class="tn">${primary.name}</span>.</h1>
+      <p class="res-sub">${primary.one}</p>
 
-    <button class="retake" onclick="goHome()">← Take the quiz again</button>
-  `;
+      <div class="card">
+        <h3>Why ${primary.name} is your #1</h3>
+        <p>${primary.why}</p>
+        <div class="feat">${primary.features.map(f => `<span>✓ ${f}</span>`).join('')}</div>
+        <div class="pr">${primary.price}</div>
+        <a href="${primary.link}" target="_blank" rel="noopener" class="btn btn-gold btn-w">${primary.price.includes('Free') ? 'Start Free' : 'Start Free Trial'} — ${primary.name} →</a>
+      </div>
+
+      <div class="card alt">
+        <h3>#2: ${second.name}</h3>
+        <p>${second.one}</p>
+        <div class="feat">${second.features.map(f => `<span>✓ ${f}</span>`).join('')}</div>
+        <div class="pr">${second.price}</div>
+        <a href="${second.link}" target="_blank" rel="noopener" class="btn btn-out btn-w">Try ${second.name} →</a>
+      </div>
+
+      <div class="card alt">
+        <h3>#3: ${third.name}</h3>
+        <p>${third.one}</p>
+        <div class="pr">${third.price}</div>
+        <a href="${third.link}" target="_blank" rel="noopener" class="btn btn-out btn-w">Try ${third.name} →</a>
+      </div>
+
+      <button class="retake" onclick="startQuiz()">← Not quite right? Retake the quiz</button>
+    </div>`;
+  showPage('result');
 }
 </script>
 </body>
