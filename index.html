@@ -200,7 +200,7 @@ footer a:hover{color:var(--ink)}
     <p>You can request removal of your email from our list at any time by emailing us. You can also unsubscribe from any email we send using the link at the bottom of each message.</p>
 
     <h2>Contact</h2>
-    <p>Questions about this policy? Reach us at <strong>hello@myaitoolquiz.com</strong></p>
+    <p>Questions about this policy? Reach us at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0c64696060634c61756d65786363607d796576226f6361">[email&#160;protected]</a></strong></p>
 
     <button class="back" onclick="showPage('home')">← Back to home</button>
   </section>
@@ -228,7 +228,7 @@ footer a:hover{color:var(--ink)}
   <section class="static fadein">
     <h1>Get in Touch</h1>
     <p>Got a question, suggestion, or found a broken link? We'd love to hear from you.</p>
-    <p>Email us at: <strong>hello@myaitoolquiz.com</strong></p>
+    <p>Email us at: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ff979a939390bf92869e968b9090938e8a9685d19c9092">[email&#160;protected]</a></strong></p>
     <p>We typically reply within 24–48 hours.</p>
 
     <button class="back" onclick="showPage('home')">← Back to home</button>
@@ -244,7 +244,7 @@ footer a:hover{color:var(--ink)}
 </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ============ TOOLS DATABASE — 15 TOOLS ============
 // Primary tools + backups. Every category has a fallback if a programme rejects you.
 const TOOLS = {
@@ -461,12 +461,11 @@ function showPage(p) {
     const el = document.getElementById('page-' + id);
     if (el) el.style.display = id === p ? 'block' : 'none';
   });
-  // Hide/show quiz-specific class
-  document.querySelector('.quiz-page').style.display = p === 'quiz' ? 'block' : 'none';
-  document.querySelector('.gate-page').style.display = p === 'email' ? 'block' : 'none';
-  document.querySelector('.res-page').style.display = p === 'result' ? 'block' : 'none';
   window.scrollTo(0, 0);
 }
+
+// Ensure clean state on page load
+showPage('home');
 
 function startQuiz() {
   qi = 0; answers = [];
@@ -552,15 +551,4 @@ function showResults() {
 
       <div class="card alt">
         <h3>#3: ${third.name}</h3>
-        <p>${third.one}</p>
-        <div class="pr">${third.price}</div>
-        <a href="${third.link}" target="_blank" rel="noopener" class="btn btn-out btn-w">Try ${third.name} →</a>
-      </div>
-
-      <button class="retake" onclick="startQuiz()">← Not quite right? Retake the quiz</button>
-    </div>`;
-  showPage('result');
-}
-</script>
-</body>
-</html>
+    
